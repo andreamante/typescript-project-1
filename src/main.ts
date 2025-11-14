@@ -1,83 +1,106 @@
 /*
-const MAGGIORE_ETA = 18;
+let numero = Number(prompt("inserire un numero"));
+let counter = 0;
 
-// Con questa riga, chiedo all'utente il suo nome.
-const nome = prompt("Come ti chiami?"); // Qui un altro commento.
-
-// Con questa riga, stampo a video "Hello, world!".
-alert("Hello, " + nome + "!");
-
-const eta = Number(prompt("Quanti anni hai?"));
-
-if (eta < MAGGIORE_ETA)
+while (counter < 10)
 {
-    alert("🔞");
-}
-else if (eta >= MAGGIORE_ETA && eta < 30)
-{
-    alert("🔝");
-}
-else
-{
-    alert("👍");
+    if ((numero % 3) == 0)
+    {
+        alert("il numero " + numero + " è multiplo di 3");
+        counter++;
+    }
+    numero++;
 }
 */
 
 /*
-alert("BENVENUTO NELLA CALCOLATRICE PIU' VELOCE AL MONDO");
+let numero = Number(prompt("inserire un numero"));
+const n = Number(prompt("inserire quanti numeri vuoi vedere"));
+if (!Number.isNaN(numero) && !Number.isNaN(n))
+{
+    let count = 0;
+    let divisibile = 0;
+    let divisori = 1;
+    numero += 1;
+    while (count < n)
+    {
+        while (divisori <= numero)
+        {
+            if ((numero % divisori) == 0)
+            {
+                divisibile++;
+            }
+            divisori++;
+        }
 
-const operatore = prompt("inserire un operatore (+, -, *, /)");
-const primoValore = Number(prompt("inserire il primo numero"));
-const secondoValore = Number(prompt("inserire il secondo numero"));
-
-let risultato = 0;
-
-if (operatore == "+")
-{
-    risultato = primoValore + secondoValore;
-}
-else if (operatore == "-")
-{
-    risultato = primoValore - secondoValore;
-}
-else if (operatore == "*")
-{
-    risultato = primoValore * secondoValore;
-}
-else if (operatore == "/")
-{
-    risultato = primoValore / secondoValore;
+        if (divisibile == 2)
+        {
+            alert("il " + (count + 1) + "° numero: " + numero + " è primo");
+            count++;
+        }
+        else
+        {
+            divisori = 1;
+            divisibile = 0;
+        }
+        numero++;
+    }
 }
 else
 {
-    alert("operatore non valido");
-}
-
-if (!Number.isNaN(risultato))
-{
-    alert("il risultato è " + risultato);
+    alert("errore");
 }
 */
 
-const numero = Number(prompt("quanti voti vuoi inserire?"));
-let voto = 0;
-let somma = 0;
-let media = 0;
+/*
+const primoNumero = Number(prompt("inserire il primo numero"));
+const secondoNumero = Number(prompt("inserire il secondo numero"));
 
-for (let i = 1; i <= numero;)
+let a = primoNumero;
+let b = secondoNumero;
+let resto = 0;
+
+while (b != 0)
 {
-    voto = Number(prompt("inserire il voto " + i));
-    if (!Number.isNaN(voto) && voto >= 1 && voto <= 10)
+    resto = a % b;
+    a = b;
+    b = resto;
+}
+
+const scelta = prompt("calcolare il m.c.m o il m.c.d tra due numeri (scrivere mcd o mcm)");
+if (scelta == "mcd")
+{
+    alert("il m.c.d tra " + primoNumero + " e " + secondoNumero + " è " + a);
+}
+else if (scelta == "mcm")
+{
+    const mcd = a;
+    const mcm = (primoNumero * secondoNumero) / mcd;
+
+    alert("il m.c.m tra " + primoNumero + " e " + secondoNumero + " è " + mcm);
+}
+else
+{
+    alert("scelta non valida");
+}
+*/
+
+const array = [9, 2, 12, 5, 100];
+const numero = Number(prompt("inserire la posizione dove sosotituire il valore (da 0 a " + (array.length - 1) + ")"));
+if (!Number.isNaN(numero) && numero >= 0 && numero < array.length)
+{
+    const nuovoValore = Number(prompt("inserire il nuovo valore"));
+    if (!Number.isNaN(nuovoValore))
     {
-        somma += voto;
-        i++;
+        array[numero] = nuovoValore;
+        alert("il nuovo array è " + array);
     }
-    else { alert("errore"); }
+    else
+    {
+        alert("errore");
+    }
 }
-if (!(Number.isNaN(somma)))
+else
 {
-    media = somma / numero;
-    alert("la media è " + media);
+    alert("errore");
 }
-else { alert("errore"); }
-
